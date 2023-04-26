@@ -1,0 +1,17 @@
+<div class="container text-center" style="margin-top:2rem">
+    <h3 class="fw-bold mb-5"><span style="color:#CA8963"></span>{{products}}</h3>
+    <div class="row">
+        <div class="col-md-3 mb-4" *ngFor="let item of productList | filter:searchKey:'title'">
+            <div class="mt-2">
+                <div class="card-body">
+                    <p><img src={{item.image}} height="150" width="150" class="nav-prods mb-2"/></p>
+                    <p class="mb-2">{{item.title}}</p>
+                    <span class="badge bg-success mb-2">{{item.rating.rate}} <i class="fa fa-star"></i></span> <span class="mx-1 text-secondary">({{item.rating.count}})</span>
+                    <h5><span> ₹{{item.price}}</span> </h5>
+                    <button class="btn btn-clr" (click)="addToCart(item)" ><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

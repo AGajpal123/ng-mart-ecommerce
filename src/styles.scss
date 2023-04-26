@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+
+body {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+
+.btn-clr{
+  background-color: #CA8963 !important;
+  color: white !important;
+}
+
+.btn-clr:hover{
+  background-color: #9c6444 !important;
+}

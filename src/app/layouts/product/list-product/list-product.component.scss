@@ -1,0 +1,23 @@
+.align-center{
+    align-items: center;
+}
+
+
+
+.card{
+    padding:18px;
+   
+}
+
+
+img:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+
+.bg-success{
+    background-color: #388E3C!important;
+}
