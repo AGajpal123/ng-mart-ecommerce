@@ -25,3 +25,26 @@ thead tr{
 .margin-top-5{
     margin-top:5rem
 }
+
+.margin-top-screen-small{
+
+}
+
+.toRight{
+    right: 7%;
+}
+
+@media all and (max-width:768px) {
+    .toRight{
+        right: 0%;
+    }
+
+   
+}
+
+
+@media all and (max-width:767px) {
+    .margin-top-screen-small{
+        margin-top:13rem;
+    }
+}

@@ -4,25 +4,26 @@
 
   <div class="container margin-top-5 containerFull">
     <div class="row">
-      <div class="col-md-8 card mb-2" *ngFor="let i of cartItems">
-        <div class="row">
-          <div class="col-3 mx-5">
-            <img src={{i.image}} height="80px" width="80px" class="mt-5 mb-5" />
-          </div>
-          <div class="col-5 mb-2">
-            <h4 class="mt-2">{{i.title}}</h4>
-            <small>{{i.description}}</small>
-            <h5 class="mt-2">₹{{i.price}}</h5>
+      <div class="col-md-8 card mb-2 margin-top-screen-small" >
+        <div *ngFor="let i of cartItems">
+          <div class="row">
+            <div class="col-3 mx-5">
+              <img src={{i.image}} height="80px" width="80px" class="mt-5 mb-5" />
+            </div>
+            <div class="col-5 mb-2">
+              <h4 class="mt-2">{{i.title}}</h4>
+              <small>{{i.description}}</small>
+              <h5 class="mt-2">₹{{i.price}}</h5>
 
+            </div>
+            <span style="text-align: end;"><i class="fa fa-trash mx-3 mb-2" (click)="removeItemFromCart(i)"></i></span>
           </div>
-          <span style="text-align: end;"><i class="fa fa-trash mx-3 mb-2" (click)="removeItemFromCart(i)"></i></span>
         </div>
-
       </div>
 
 
 
-      <div class="col-md-3 mx-1 card position-fixed top-1 end-0">
+      <div class="col-md-3 mx-1 card position-fixed toRight">
         <span class="text-secondary fw-bold"> PRICE DETAILS</span>
         <div class="mt-2 mb-2 d-flex justify-content-between">
 
