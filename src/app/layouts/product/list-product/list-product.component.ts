@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { CartService } from '../services/cart.service';
+import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-list-product',
@@ -13,10 +14,13 @@ export class ListProductComponent implements OnInit {
   productList: any;
   products: any;
   name: any;
-  constructor(private _productService: ProductService, private _cartService: CartService) { }
+  constructor(private _productService: ProductService, private _cartService: CartService,
+    private _toast : ToastService) { }
 
   ngOnInit(): void {
-
+    this._toast.getSuccess().subscribe((res)=>{
+      console.log(res);
+    })
     this._cartService.getSearchKey().subscribe((res) => {
       this.searchKey = res;
     })

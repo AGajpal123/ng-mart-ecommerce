@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
 import { ToastService } from '../services/toast.service';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -15,13 +16,20 @@ export class AddToCartComponent implements OnInit {
   cartItems = [];
   total= 0;
   constructor(private router: Router, private _cartService : CartService,
-    private _toast : ToastService) { }
+    private _toast : ToastService,private _prodService : ProductService) { }
 
   ngOnInit(): void {
 
      this.getItems();
+     this.setSearchDisabled();
     // this.getStatus();
- 
+    this._toast.getSuccess().subscribe((res)=>{
+      console.log(res);
+    })
+  }
+
+  setSearchDisabled(){
+    this._prodService.setSearchDisabled(true);
   }
 
   // getStatus(){

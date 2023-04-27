@@ -9,7 +9,7 @@ import { ListProductComponent } from './list-product/list-product.component';
 import { ShopProductComponent } from './shop-product/shop-product.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ToastComponent } from './toast/toast.component';
+
 
 
 
@@ -18,7 +18,7 @@ import { ToastComponent } from './toast/toast.component';
     ListProductComponent,
     ShopProductComponent,
     AddToCartComponent,
-    ToastComponent
+
   ],
   imports: [
     CommonModule,
@@ -28,7 +28,7 @@ import { ToastComponent } from './toast/toast.component';
   ],
   exports : [
     ListProductComponent,
-    ToastComponent
+ 
   ]
 })
 export class ProductModule { }

@@ -23,9 +23,9 @@ export class HeaderComponent implements OnInit {
   }
 
    getStatus(){
-    this._toast.getSuccess().subscribe((res)=>{
-      console.log(res);
-    })
+    // this._toast.getSuccess().subscribe((res)=>{
+    //   console.log(res);
+    // })
   }
 
   getCartCount() {

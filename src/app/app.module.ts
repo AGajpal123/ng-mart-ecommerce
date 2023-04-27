@@ -7,13 +7,15 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductModule } from './layouts/product/product.module';
 import { SharedModule } from './shared/shared.module';
+import { ToastComponent } from './pages/toast/toast.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    ToastComponent
     
   ],
   imports: [

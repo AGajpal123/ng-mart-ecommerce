@@ -13,7 +13,7 @@
             <div class="col-5 mb-2">
               <h4 class="mt-2">{{i.title}}</h4>
               <small>{{i.description}}</small>
-              <h5 class="mt-2">₹{{i.price}}</h5>
+              <h5 class="mt-2">${{i.price}}</h5>
 
             </div>
             <span style="text-align: end;"><i class="fa fa-trash mx-3 mb-2" (click)="removeItemFromCart(i)"></i></span>
@@ -28,11 +28,11 @@
         <div class="mt-2 mb-2 d-flex justify-content-between">
 
           <span>Price ({{cartItems.length}})</span>
-          <span>₹{{total}}</span>
+          <span>${{total}}</span>
         </div>
         <div class="mt-2 mb-2 d-flex justify-content-between">
           <span>Discount</span>
-          <span class="text-success"> - ₹0</span>
+          <span class="text-success"> - $0</span>
         </div>
         <div class="mt-2 mb-2 d-flex justify-content-between">
           <span> Delivery Charges</span>
@@ -40,7 +40,7 @@
         </div>
         <div class="mt-2 mb-2 d-flex justify-content-between">
           <h4>Total Amount </h4>
-          <h4>₹{{total}}</h4>
+          <h4>${{total}}</h4>
         </div>
 
       </div>
