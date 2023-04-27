@@ -10,8 +10,10 @@
 
 .itemName{
     cursor: pointer;
+    text-transform:uppercase;
+    color: rgb(94, 94, 212);
 }
 
 .itemName:hover{
-    color: rgb(44, 44, 247);
+    color: black;
 }
