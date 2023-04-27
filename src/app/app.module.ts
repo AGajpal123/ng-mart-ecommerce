@@ -7,7 +7,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductModule } from './layouts/product/product.module';
 import { SharedModule } from './shared/shared.module';
-import { ToastComponent } from './pages/toast/toast.component';
+import { ToastComponent } from './layouts/product/toast/toast.component';
 
 
 

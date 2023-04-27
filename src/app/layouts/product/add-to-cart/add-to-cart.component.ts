@@ -23,9 +23,7 @@ export class AddToCartComponent implements OnInit {
      this.getItems();
      this.setSearchDisabled();
     // this.getStatus();
-    this._toast.getSuccess().subscribe((res)=>{
-      console.log(res);
-    })
+
   }
 
   setSearchDisabled(){

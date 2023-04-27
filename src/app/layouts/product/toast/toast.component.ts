@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastService } from '../../layouts/product/services/toast.service';
+import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-toast',
@@ -11,9 +11,12 @@ export class ToastComponent implements OnInit {
   constructor(private _toast : ToastService) { }
   showSuccess = false;
   ngOnInit(): void {
-    this._toast.getSuccess().subscribe((res)=>{
-      console.log(res);
-    })
+    // this._toast.getSuccess().subscribe((res)=>{
+    //   if(res==='success'){
+    //     this.showSuccess = true;
+    //   }
+     
+    // })
   }
 
   
