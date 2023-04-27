@@ -20,9 +20,6 @@ export class ListProductComponent implements OnInit {
     private _toast : ToastService) { }
 
   ngOnInit(): void {
-    this._toast.getSuccess().subscribe((res)=>{
-      console.log(res);
-    })
     this._cartService.getSearchKey().subscribe((res) => {
       this.searchKey = res;
     })
@@ -46,7 +43,7 @@ export class ListProductComponent implements OnInit {
           if(data.category==="men's clothing"||data.category==="women's clothing"){
             data.category = 'fashion';
           }
-          Object.assign(data, { total: data.price, quantity: 1 });
+          Object.assign(data, { total: data.price*81.72, quantity: 1, ruppee : Math.round((data.price)*81.72) });
           //or
           //data.total = data.price;
         });

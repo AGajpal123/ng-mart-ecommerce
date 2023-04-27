@@ -2,8 +2,8 @@
     width: 120px;
 }
 
-.fa-trash{
-    color: Rgb(220,53,69);
+.fa-trash,.fa-shopping-basket{
+    color: white;
     font-size: 1.5rem;
     cursor: pointer;
 }
@@ -23,7 +23,7 @@ thead tr{
 }
 
 .margin-top-5{
-    margin-top:5rem
+    margin-top:6rem
 }
 
 .margin-top-screen-small{
@@ -32,6 +32,10 @@ thead tr{
 
 .toRight{
     right: 7%;
+}
+
+.btn-clr{
+    width: auto;
 }
 
 @media all and (max-width:768px) {

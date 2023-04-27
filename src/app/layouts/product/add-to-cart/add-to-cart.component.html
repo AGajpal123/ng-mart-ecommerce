@@ -2,37 +2,40 @@
 
 <ng-container *ngIf="isCartFull">
 
-  <div class="container margin-top-5 containerFull">
+  <div class="container margin-top-5 h-100">
     <div class="row">
-      <div class="col-md-8 card mb-2 margin-top-screen-small" >
+      <div class="col-md-8 card mb-2 margin-top-screen-small mx-2">
         <div *ngFor="let i of cartItems">
           <div class="row">
             <div class="col-3 mx-5">
-              <img src={{i.image}} height="80px" width="80px" class="mt-5 mb-5" />
+              <img src={{i.image}} height="100px" width="100px" class="mt-5 mb-5" />
             </div>
             <div class="col-5 mb-2">
-              <h4 class="mt-2">{{i.title}}</h4>
+              <h5 class="mt-2">{{i.title}}</h5>
               <small>{{i.description}}</small>
-              <h5 class="mt-2">${{i.price}}</h5>
+              <h5 class="mt-2">₹{{i.ruppee}}</h5>
 
             </div>
-            <span style="text-align: end;"><i class="fa fa-trash mx-3 mb-2" (click)="removeItemFromCart(i)"></i></span>
+
+            <span style="text-align: end;" (click)="removeItemFromCart(i)"> <button class="btn btn-clr mx-3 mb-2"> <i class="fa fa-trash "
+                  ></i> Delete Item</button></span>
+            <hr>
           </div>
         </div>
       </div>
 
 
 
-      <div class="col-md-3 mx-1 card position-fixed toRight">
-        <span class="text-secondary fw-bold"> PRICE DETAILS</span>
+      <div class="col-md-3 mx-1 card position-fixed toRight mx-2">
+        <span class="text-secondary fw-bold mt-2"> PRICE DETAILS</span>
         <div class="mt-2 mb-2 d-flex justify-content-between">
 
           <span>Price ({{cartItems.length}})</span>
-          <span>${{total}}</span>
+          <span>₹{{total}}</span>
         </div>
         <div class="mt-2 mb-2 d-flex justify-content-between">
           <span>Discount</span>
-          <span class="text-success"> - $0</span>
+          <span class="text-success"> - ₹0</span>
         </div>
         <div class="mt-2 mb-2 d-flex justify-content-between">
           <span> Delivery Charges</span>
@@ -40,7 +43,7 @@
         </div>
         <div class="mt-2 mb-2 d-flex justify-content-between">
           <h4>Total Amount </h4>
-          <h4>${{total}}</h4>
+          <h4>₹{{total}}</h4>
         </div>
 
       </div>
@@ -50,12 +53,13 @@
 
 </ng-container>
 
-<div class="container card margin-top-5 text-center align-items-center" *ngIf="isCartEmpty && cartItems?.length===0">
+<div class="container card h-100 margin-top-5 text-center align-items-center"
+  *ngIf="isCartEmpty && cartItems?.length===0">
   <img src="../../../../assets/images/empty-cart.png" height="280" width="360" class="mx-auto d-block" />
   <h5>Your cart is empty!</h5>
   <small>Looks like you havent added anything to your card.</small>
   <small class="mb-5">Go ahead and explore categories</small>
 
-  <button class="btn btn-clr mb-5" (click)="shopNow()">Shop Now</button>
+  <button class="btn btn-clr mb-5" (click)="shopNow()"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Shop Now</button>
 
 </div>
