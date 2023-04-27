@@ -11,6 +11,7 @@ export class CartService {
   public cartItemList : any = [];
   public productList = new BehaviorSubject<any>([]);
   public searchKey = new BehaviorSubject<any>("");
+  public status = new BehaviorSubject<any>("");
   constructor(private toastService : ToastService) { }
 
   getSearchKey(){
@@ -33,12 +34,18 @@ export class CartService {
   addToCart(product : any){
     const filterProduct = this.cartItemList.filter((data)=>data.id===product.id);
     if(filterProduct!=null && filterProduct.length==0){
-      this.cartItemList.push(product);     
+      this.cartItemList.push(product); 
+      this.status.next("Added to Cart!")
     }else{
-      alert("Item already in cart!");
+      this.status.next("Product Already in Cart!")
     }
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
+  }
+
+
+  getStatusOfItem(){
+    return this.status.asObservable();
   }
 
   getTotalPrice(){

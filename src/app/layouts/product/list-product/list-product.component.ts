@@ -14,6 +14,8 @@ export class ListProductComponent implements OnInit {
   productList: any;
   products: any;
   name: any;
+  show: any = false;
+  message: any;
   constructor(private _productService: ProductService, private _cartService: CartService,
     private _toast : ToastService) { }
 
@@ -61,6 +63,13 @@ export class ListProductComponent implements OnInit {
   }
 
   addToCart(item: any) {
-    this._cartService.addToCart(item)
+    this._cartService.addToCart(item);
+    this._cartService.getStatusOfItem().subscribe((res)=>{
+          this.show = true;
+          this.message = res;
+    });
+    setTimeout(()=>{
+      this.show = false
+    },3000)
   }
 }

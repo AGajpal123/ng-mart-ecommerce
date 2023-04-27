@@ -9,6 +9,19 @@
    
 }
 
+.fa-check-circle,.fa-info-circle{
+    font-size: 1.5rem;
+}
+
+.fa-check-circle{
+    color: #388E3C;
+}
+
+.fa-info-circle{
+    color:#367BBC;
+}
+
+
 
 img:hover{
     transition: 0.3s ease-in-out;
@@ -20,4 +33,13 @@ img:hover{
 
 .bg-success{
     background-color: #388E3C!important;
+}
+
+
+.positionAlert{
+    position: fixed;
+    /* justify-content: center; */
+    align-items: center;
+    top: 15rem;
+    right: 0rem;
 }
