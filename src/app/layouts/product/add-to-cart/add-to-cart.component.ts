@@ -121,7 +121,7 @@ export class AddToCartComponent implements OnInit {
         if(id===res.id){
           if((res.quantity)-1>0){
             res.quantity=parseInt(res.quantity)-1;
-            res.ruppee = parseInt(res.quantity)*parseInt(res.ruppee);
+            res.ruppee = parseInt(res.ruppee)-parseInt(res.initialPrice);
           }
         }
       });
@@ -132,7 +132,7 @@ export class AddToCartComponent implements OnInit {
     this.cartItems.forEach((res)=>{
       if(id===res.id){
         res.quantity=parseInt(res.quantity)+1;
-        res.ruppee = parseInt(res.quantity)*parseInt(res.ruppee);
+        res.ruppee = parseInt(res.ruppee)+parseInt(res.initialPrice);
       }
     });
     this.cartItems = this.cartItems;
