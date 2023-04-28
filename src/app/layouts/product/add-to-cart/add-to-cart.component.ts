@@ -18,58 +18,21 @@ export class AddToCartComponent implements OnInit {
   total = 0;
   quantity;
   itemIdx;
+  cartItemLength;
 
 
   constructor(private router: Router, private _cartService: CartService,
     private _toast: ToastService, private _prodService: ProductService,
     private counter: CounterService) {
-   this.get();
+
   }
 
-  get(){
-    // this.counter.getCounter().subscribe((res) => {
-    //   if (res != 0) {
-    //     this.counter.getItemIndex().subscribe((data) => {
-    //       if (data != 0) {
-    //         this.getVal();
-    //       }
-    //     })
-    //   }
-    // });
-  }
-
-
-
-  // getVal() {
-  //   this.quantity = this.counter.getCounter().source;
-  //   this.quantity = this.quantity._value;
-  //   this.itemIdx = this.counter.getItemIndex().source;
-  //   this.itemIdx = this.itemIdx._value;
-  //   if (this.quantity != 0 && this.itemIdx != 0) {
-  //     this._cartService.getProducts().subscribe((res) => {
-  //       if (res && res != null && res.length != 0) {
-  //         res.forEach((d) => {
-  //           if (d.id === this.itemIdx) {
-  //             d.quantity = this.quantity;
-  //           }
-  //         });
-  //         this.cartItems = res;
-  //         this.isCartEmpty = false;
-  //         this.isCartFull = true;
-  //         this.total = Math.round(this._cartService.getTotalPrice());
-  //       } else {
-  //         this.isCartEmpty = true;
-  //         this.isCartFull = false;
-  //       }
-  //     });
-  //   }
-  // }
 
   ngOnInit(): void {
 
     this.getItems();
     this.setSearchDisabled();
-    // this.getStatus();
+
 
 
   }
@@ -81,16 +44,12 @@ export class AddToCartComponent implements OnInit {
     this._prodService.setSearchDisabled(true);
   }
 
-  // getStatus(){
-  //   this._toast.getSuccess().subscribe((res)=>{
-  //     console.log(res);
-  //   })
-  // }
 
   getItems() {
     this._cartService.getProducts().subscribe((res) => {
       if (res && res != null && res.length != 0) {
         this.cartItems = res;
+        this.cartItemLength = this.cartItems.length;
         this.isCartEmpty = false;
         this.isCartFull = true;
         this.total = Math.round(this._cartService.getTotalPrice());
@@ -120,8 +79,11 @@ export class AddToCartComponent implements OnInit {
       this.cartItems.forEach((res)=>{
         if(id===res.id){
           if((res.quantity)-1>0){
+            this.total = this.total-res.initialPrice;
             res.quantity=parseInt(res.quantity)-1;
             res.ruppee = parseInt(res.ruppee)-parseInt(res.initialPrice);
+            this.cartItemLength -=1;
+            
           }
         }
       });
@@ -131,8 +93,11 @@ export class AddToCartComponent implements OnInit {
    increase(id){
     this.cartItems.forEach((res)=>{
       if(id===res.id){
+        this.total = this.total+res.initialPrice;
         res.quantity=parseInt(res.quantity)+1;
         res.ruppee = parseInt(res.ruppee)+parseInt(res.initialPrice);
+        this.cartItemLength +=1;
+        
       }
     });
     this.cartItems = this.cartItems;

@@ -44,10 +44,10 @@ export class ListProductComponent implements OnInit {
           data.category = 'fashion';
         }
         Object.assign(data, {
-          total: parseInt(data.price) * 81.72,
+          total: Math.round(data.price * 81.72),
           quantity: 1,
-          ruppee: Math.round((data.price) * 81.72),
-          initialPrice :  Math.round((data.price) * 81.72)
+          ruppee: Math.round(data.price * 81.72),
+          initialPrice :  Math.round(data.price * 81.72)
         });
         //or
         //data.total = data.price;

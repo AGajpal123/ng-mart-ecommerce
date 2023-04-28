@@ -14,7 +14,7 @@
                     <p class="mb-2">{{item.title}}</p>
                     <span class="badge bg-success mb-2">{{item.rating.rate}} <i class="fa fa-star"></i></span> <span
                         class="mx-1 text-secondary">({{item.rating.count}})</span>
-                    <h5><span> ₹{{item.ruppee}}</span> </h5>
+                    <h5><span class="text-secondary">MRP : </span><span> ₹{{item.ruppee}}</span> </h5>
                     <button class="btn btn-clr" (click)="addToCart(item)"><i class="fa fa-shopping-cart"></i> Add to
                         Cart</button>
                 </div>
