@@ -19,6 +19,7 @@ export class AddToCartComponent implements OnInit {
   quantity;
   itemIdx;
 
+
   constructor(private router: Router, private _cartService: CartService,
     private _toast: ToastService, private _prodService: ProductService,
     private counter: CounterService) {
@@ -114,5 +115,28 @@ export class AddToCartComponent implements OnInit {
   }
 
 
+  decrease(id){
+   
+      this.cartItems.forEach((res)=>{
+        if(id===res.id){
+          if((res.quantity)-1>0){
+            res.quantity=parseInt(res.quantity)-1;
+            res.ruppee = parseInt(res.quantity)*parseInt(res.ruppee);
+          }
+        }
+      });
+      this.cartItems = this.cartItems;
+   }
+ 
+   increase(id){
+    this.cartItems.forEach((res)=>{
+      if(id===res.id){
+        res.quantity=parseInt(res.quantity)+1;
+        res.ruppee = parseInt(res.quantity)*parseInt(res.ruppee);
+      }
+    });
+    this.cartItems = this.cartItems;
+    
+   }
 
 }

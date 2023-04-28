@@ -9,19 +9,24 @@
           <div class="row">
             <div class="col-3 mx-5">
               <img src={{i.image}} height="100px" width="100px" class="mt-5 mb-5" />
-               <app-counter [itemIdx]="i"></app-counter>
-               
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary" (click)="decrease(i.id)"><i class="fa fa-minus"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-white" disabled>{{i.quantity}}</button>
+                <button type="button" class="btn btn-primary" (click)="increase(i.id)"><i class="fa fa-plus"
+                    aria-hidden="true"></i></button>
+              </div>
+
             </div>
             <div class="col-5 mb-2">
-              <h5 class="mt-2">{{i.title}}</h5>
-              <small class="mt-2">{{i.quantity}}</small>
+              <h5 class="mt-2">{{i.title}} ({{i.quantity}})</h5>
               <small>{{i.description}}</small>
               <h5 class="mt-2">₹{{i.ruppee}}</h5>
 
             </div>
 
-            <span style="text-align: end;" (click)="removeItemFromCart(i)"> <button class="btn btn-clr mx-3 mb-3"> <i class="fa fa-trash "
-                  ></i> Remove</button></span>
+            <span style="text-align: end;" (click)="removeItemFromCart(i)"> <button class="btn btn-clr mx-3 mb-3"> <i
+                  class="fa fa-trash "></i> Remove</button></span>
             <hr>
           </div>
         </div>
@@ -63,6 +68,7 @@
   <small>Looks like you havent added anything to your card.</small>
   <small class="mb-5">Go ahead and explore categories</small>
 
-  <button class="btn btn-clr mb-5" (click)="shopNow()"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Shop Now</button>
+  <button class="btn btn-clr mb-5" (click)="shopNow()"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Shop
+    Now</button>
 
 </div>
