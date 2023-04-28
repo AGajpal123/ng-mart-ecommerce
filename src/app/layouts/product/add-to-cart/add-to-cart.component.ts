@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, DoCheck, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
 import { ToastService } from '../services/toast.service';
 import { ProductService } from '../services/product.service';
+import { CounterService } from 'src/app/shared/services/counter.service';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -14,19 +15,68 @@ export class AddToCartComponent implements OnInit {
   isCartEmpty = false;
   isCartFull = false
   cartItems = [];
-  total= 0;
-  constructor(private router: Router, private _cartService : CartService,
-    private _toast : ToastService,private _prodService : ProductService) { }
+  total = 0;
+  quantity;
+  itemIdx;
+
+  constructor(private router: Router, private _cartService: CartService,
+    private _toast: ToastService, private _prodService: ProductService,
+    private counter: CounterService) {
+   this.get();
+  }
+
+  get(){
+    // this.counter.getCounter().subscribe((res) => {
+    //   if (res != 0) {
+    //     this.counter.getItemIndex().subscribe((data) => {
+    //       if (data != 0) {
+    //         this.getVal();
+    //       }
+    //     })
+    //   }
+    // });
+  }
+
+
+
+  // getVal() {
+  //   this.quantity = this.counter.getCounter().source;
+  //   this.quantity = this.quantity._value;
+  //   this.itemIdx = this.counter.getItemIndex().source;
+  //   this.itemIdx = this.itemIdx._value;
+  //   if (this.quantity != 0 && this.itemIdx != 0) {
+  //     this._cartService.getProducts().subscribe((res) => {
+  //       if (res && res != null && res.length != 0) {
+  //         res.forEach((d) => {
+  //           if (d.id === this.itemIdx) {
+  //             d.quantity = this.quantity;
+  //           }
+  //         });
+  //         this.cartItems = res;
+  //         this.isCartEmpty = false;
+  //         this.isCartFull = true;
+  //         this.total = Math.round(this._cartService.getTotalPrice());
+  //       } else {
+  //         this.isCartEmpty = true;
+  //         this.isCartFull = false;
+  //       }
+  //     });
+  //   }
+  // }
 
   ngOnInit(): void {
 
-     this.getItems();
-     this.setSearchDisabled();
+    this.getItems();
+    this.setSearchDisabled();
     // this.getStatus();
+
 
   }
 
-  setSearchDisabled(){
+
+
+
+  setSearchDisabled() {
     this._prodService.setSearchDisabled(true);
   }
 
@@ -36,18 +86,18 @@ export class AddToCartComponent implements OnInit {
   //   })
   // }
 
-  getItems(){
-     this._cartService.getProducts().subscribe((res)=>{
-            if(res && res!=null && res.length!=0){
-              this.cartItems = res;
-              this.isCartEmpty = false;
-              this.isCartFull = true;
-              this.total = Math.round(this._cartService.getTotalPrice());
-            }else{
-              this.isCartEmpty = true;
-              this.isCartFull = false;
-            }
-     });
+  getItems() {
+    this._cartService.getProducts().subscribe((res) => {
+      if (res && res != null && res.length != 0) {
+        this.cartItems = res;
+        this.isCartEmpty = false;
+        this.isCartFull = true;
+        this.total = Math.round(this._cartService.getTotalPrice());
+      } else {
+        this.isCartEmpty = true;
+        this.isCartFull = false;
+      }
+    });
   }
 
   shopNow() {
@@ -55,11 +105,14 @@ export class AddToCartComponent implements OnInit {
   }
 
 
-  removeItemFromCart(item:any){
+  removeItemFromCart(item: any) {
     this._cartService.removeCartItem(item);
-    if(this.cartItems?.length===0){
+    if (this.cartItems?.length === 0) {
       this.isCartEmpty = true;
       this.isCartFull = false;
     }
   }
+
+
+
 }

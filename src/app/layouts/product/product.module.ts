@@ -9,6 +9,8 @@ import { ListProductComponent } from './list-product/list-product.component';
 import { ShopProductComponent } from './shop-product/shop-product.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -18,13 +20,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ListProductComponent,
     ShopProductComponent,
     AddToCartComponent,
-
+    
   ],
   imports: [
     CommonModule,
     ProductRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports : [
     ListProductComponent,

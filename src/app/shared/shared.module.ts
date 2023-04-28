@@ -5,20 +5,23 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { HeaderComponent } from './component/header/header.component';
 import { NavItemComponent } from './component/nav-item/nav-item.component';
 import { FilterPipe } from './pipes/filter.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CounterComponent } from './component/counter/counter.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     NavItemComponent,
-    FilterPipe
+    FilterPipe,
+    CounterComponent
   ],
   imports: [
     CommonModule,
     SharedRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  exports : [HeaderComponent,NavItemComponent,FilterPipe]
+  exports : [HeaderComponent,NavItemComponent,FilterPipe,CounterComponent]
 })
 export class SharedModule { }
