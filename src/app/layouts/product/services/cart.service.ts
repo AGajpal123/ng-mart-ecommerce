@@ -51,7 +51,7 @@ export class CartService {
   getTotalPrice(){
     let total = 0;
     this.cartItemList.map((a:any)=>{
-      total += a.total; 
+      total += a.ruppee; 
     });
     return total;
   }
