@@ -77,22 +77,19 @@ export class AddToCartComponent implements OnInit {
   decrease(id){
    
       this.cartItems.forEach((res)=>{
-        if(id===res.id){
-          if((res.quantity)-1>0){
+        if(id===res.id && (res.quantity)-1>0){
             this.total = this.total-res.initialPrice;
             res.quantity=parseInt(res.quantity)-1;
             res.ruppee = parseInt(res.ruppee)-parseInt(res.initialPrice);
-            this.cartItemLength -=1;
-            
+            this.cartItemLength -=1; 
           }
-        }
       });
       this.cartItems = this.cartItems;
    }
  
    increase(id){
     this.cartItems.forEach((res)=>{
-      if(id===res.id){
+      if(id===res.id && res.quantity<res.rating.count){
         this.total = this.total+res.initialPrice;
         res.quantity=parseInt(res.quantity)+1;
         res.ruppee = parseInt(res.ruppee)+parseInt(res.initialPrice);
